@@ -53,8 +53,9 @@ end
 def check_friendlessness(people)
   result = []
   for person in people
-    if person[:friend].length == 0
-      result << person
+    friendship = person[:friend]
+      if friendship.length == 0
+        result << friendship
     end
   end
 end
