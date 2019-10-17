@@ -120,17 +120,17 @@ class TestFriends < MiniTest::Test
     assert_equal(50, @person5[:monies])
     assert_equal(70, @person4[:monies])
   end
-  #
-  # def test_loan_lendee_balnce
-  #   result = loan(@person5, @person4, 50)
-  # end
   # 8. Find the set of everyone's favourite food joined together
-#   # (hint: concatenate the favourites/snack arrays together)
-#   def test_everyones_favourite_foods
-#     result = everyones_favourite_foods(@people)
-#   end
+  # (hint: concatenate the favourites/snack arrays together)
+  def test_everyones_favourite_foods
+    result = everyones_favourite_foods(@people)
+    assert_equal(7, result.length)
+  end
 #
 #   # 9. Find people with no friends
 #   # (hint: return an array, there might be more people in the future with no friends!)
-#
+  def test_check_friendlessness
+    result = check_friendlessness(@people)
+    assert_equal(1, result.length)
+  end
 end

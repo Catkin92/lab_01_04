@@ -40,3 +40,21 @@ end
  #    favourite = array[:favourites][0][:snacks]
  #  end
  # end
+def everyones_favourite_foods(people)
+  result = []
+  for person in people
+    for snack in person[:favourites][:snacks]
+    result << snack
+    end
+  end
+  return result
+end
+
+def check_friendlessness(people)
+  result = []
+  for person in people
+    if person[:friend].length == 0
+      result << person
+    end
+  end
+end
