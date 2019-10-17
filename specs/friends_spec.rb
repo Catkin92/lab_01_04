@@ -93,27 +93,44 @@ class TestFriends < MiniTest::Test
   # (hint: This function should not return anything. After the function call, check for the length of the friends array to test it!)
 
   def test_add_friend
-    result = add_friend(@person2, "Scrappy-Doo").length
+    add_friend(@person2, "Scrappy-Doo")
+    result = @person2[:friends].length
     assert_equal(2, result)
   end
   # 5. For a given person, remove a specific name from their list of friends
   # (hint: Same as above, testing for the length of the array should be sufficient)
-
+  def test_remove_friend
+    remove_friend(@person4, "Shaggy")
+    result = @person4[:friends].length
+    assert_equal(2, result)
+  end
 
   # 6. Find the total of everyone's money
   # (hint: use the @people array, remember how we checked the total number of eggs yesterday?)
-
+  def test_count_money
+    result = count_money(@people)
+    assert_equal(143, result)
+  end
 
   # 7. For two given people, allow the first person to loan a given value of money to the other
   # (hint: our function will probably need 3 arguments passed to it... the lender, the lendee, and the amount for this function)
   # (hint2: You should test if both the lender's and the lendee's money have changed, maybe two assertions?)
-
-
+  def test_loan_balance
+    loan(@person5, @person4, 50)
+    assert_equal(50, @person5[:monies])
+    assert_equal(70, @person4[:monies])
+  end
+  #
+  # def test_loan_lendee_balnce
+  #   result = loan(@person5, @person4, 50)
+  # end
   # 8. Find the set of everyone's favourite food joined together
-  # (hint: concatenate the favourites/snack arrays together)
-
-
-  # 9. Find people with no friends
-  # (hint: return an array, there might be more people in the future with no friends!)
-
+#   # (hint: concatenate the favourites/snack arrays together)
+#   def test_everyones_favourite_foods
+#     result = everyones_favourite_foods(@people)
+#   end
+#
+#   # 9. Find people with no friends
+#   # (hint: return an array, there might be more people in the future with no friends!)
+#
 end
